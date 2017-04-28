@@ -72,7 +72,7 @@
                             <label><input type="checkbox" name="teste" value="conectado">Mantenha-me Conectado</label>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-danger btn-block" type="submit">Entra</button>
+                            <button class="btn btn-danger btn-block" type="submit">Entrar</button>
                         </div>
                     </form>
                 </div>
