@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-import Controle.BancoDeDados;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -73,22 +72,6 @@ public class RegisterForm extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        PrintWriter out = response.getWriter();
-        
-        String nome = request.getParameter("nome");
-        
-        String[] dados = new String[2];
-        
-        dados[0] = nome;
-        dados[1] = nome;
-        
-        try {
-            BancoDeDados bd = new BancoDeDados();
-            out.println(bd.isert(dados, "USUARIOS"));
-        } catch (SQLException ex) {
-            out.println(ex.getMessage());
-        }
         
         
     }
