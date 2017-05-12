@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 
+import Databases.UsuarioFacade;
+import Models.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +21,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(urlPatterns = {"/RegisterForm"})
 public class RegisterForm extends HttpServlet {
+
+    @EJB
+    private UsuarioFacade usuarioFacade;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -58,7 +63,17 @@ public class RegisterForm extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        Usuario user = new Usuario();
+        
+        user.setNome("waiudh");
+        user.setEmail("awuidh");
+        user.setUsuario("aiwduh");
+        
+        
+        usuarioFacade.create(user);
+        
+        
     }
 
     /**
@@ -72,6 +87,9 @@ public class RegisterForm extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        
+        
         
         
     }

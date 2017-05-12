@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -23,15 +24,15 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author filipe
  */
 @Entity
-@Table(name = "USUARIOS")
+@Table(name = "USUARIO")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Usuarios.findAll", query = "SELECT u FROM Usuarios u"),
-    @NamedQuery(name = "Usuarios.findById", query = "SELECT u FROM Usuarios u WHERE u.id = :id"),
-    @NamedQuery(name = "Usuarios.findByNome", query = "SELECT u FROM Usuarios u WHERE u.nome = :nome"),
-    @NamedQuery(name = "Usuarios.findByEmail", query = "SELECT u FROM Usuarios u WHERE u.email = :email"),
-    @NamedQuery(name = "Usuarios.findByUsuario", query = "SELECT u FROM Usuarios u WHERE u.usuario = :usuario")})
-public class Usuarios implements Serializable {
+    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u"),
+    @NamedQuery(name = "Usuario.findById", query = "SELECT u FROM Usuario u WHERE u.id = :id"),
+    @NamedQuery(name = "Usuario.findByNome", query = "SELECT u FROM Usuario u WHERE u.nome = :nome"),
+    @NamedQuery(name = "Usuario.findByEmail", query = "SELECT u FROM Usuario u WHERE u.email = :email"),
+    @NamedQuery(name = "Usuario.findByUsuario", query = "SELECT u FROM Usuario u WHERE u.usuario = :usuario")})
+public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -39,22 +40,35 @@ public class Usuarios implements Serializable {
     @Basic(optional = false)
     @Column(name = "ID")
     private Integer id;
-    @Size(max = 2147483647)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "NOME")
     private String nome;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="E-mail inválido")//if the field contains email address consider using this annotation to enforce field validation
-    @Size(max = 2147483647)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "EMAIL")
     private String email;
-    @Size(max = 2147483647)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "USUARIO")
     private String usuario;
 
-    public Usuarios() {
+    public Usuario() {
     }
 
-    public Usuarios(Integer id) {
+    public Usuario(Integer id) {
         this.id = id;
+    }
+
+    public Usuario(Integer id, String nome, String email, String usuario) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.usuario = usuario;
     }
 
     public Integer getId() {
@@ -99,10 +113,10 @@ public class Usuarios implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Usuarios)) {
+        if (!(object instanceof Usuario)) {
             return false;
         }
-        Usuarios other = (Usuarios) object;
+        Usuario other = (Usuario) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -111,7 +125,7 @@ public class Usuarios implements Serializable {
 
     @Override
     public String toString() {
-        return "Models.Usuarios[ id=" + id + " ]";
+        return "Models.Usuario[ id=" + id + " ]";
     }
     
 }

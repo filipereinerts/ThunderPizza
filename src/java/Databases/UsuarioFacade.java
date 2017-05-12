@@ -5,7 +5,7 @@
  */
 package Databases;
 
-import Models.Usuarios;
+import Models.Usuario;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author filipe
  */
 @Stateless
-public class UsuariosFacade extends AbstractFacade<Usuarios> {
+public class UsuarioFacade extends AbstractFacade<Usuario> {
 
     @PersistenceContext(unitName = "ThunderPizzaPU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class UsuariosFacade extends AbstractFacade<Usuarios> {
         return em;
     }
 
-    public UsuariosFacade() {
-        super(Usuarios.class);
+    public UsuarioFacade() {
+        super(Usuario.class);
     }
     
 }
