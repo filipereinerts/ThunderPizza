@@ -66,8 +66,8 @@ public class RegisterForm extends HttpServlet {
         
         Usuario user = new Usuario();
         
-        user.setNome("waiudh");
-        user.setEmail("awuidh");
+        user.setNome("wdh");
+        user.setEmail("haha");
         user.setUsuario("aiwduh");
         
         
