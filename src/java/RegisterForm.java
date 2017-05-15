@@ -1,11 +1,13 @@
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import Databases.ClienteFacade;
 import Databases.UsuarioFacade;
-import Models.Usuario;
+import Models.Cliente;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
@@ -21,6 +23,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(urlPatterns = {"/RegisterForm"})
 public class RegisterForm extends HttpServlet {
+
+    @EJB
+    private ClienteFacade clienteFacade;
 
     @EJB
     private UsuarioFacade usuarioFacade;
@@ -64,14 +69,14 @@ public class RegisterForm extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        Usuario user = new Usuario();
+        Cliente cliente = new Cliente();
         
-        user.setNome("waiudh");
-        user.setEmail("awuidh");
-        user.setUsuario("aiwduh");
+        cliente.setIdade(12);
+        cliente.setNome("Filipe");
+        cliente.setTelefone("489657457");
         
         
-        usuarioFacade.create(user);
+        clienteFacade.create(cliente);
         
         
     }

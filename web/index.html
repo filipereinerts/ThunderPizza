@@ -1,0 +1,59 @@
+<html ng-app="myApp">
+    <head>
+        
+        <title>ThunderPizza</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <base href="/ThunderPizza/"/>
+        
+        <!--JAVASCRIPTS-->
+        <script src="js/jquery-3.2.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-route.min.js"></script>
+        <script src="js/jquery.maskedinput.min.js"></script>
+        <script src="js/app.js"></script>
+        
+        <!--CSS's-->
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+        
+        <!--ICONES-->
+        <link rel="shortcut icon" href="TPsemfundo.png.ico" type="image/x-icon" />
+        <link rel="icon" href="TPsemfundo.png.ico" type="image/x-icon" />
+        
+        <style>
+            .text-navbar {
+               color: #ffffff;
+            }
+        </style>    
+        
+    </head>
+    
+    <nav class="navbar" style="background-color: #d9534f; border-color:#d9534f"> 
+        <div class="container-fluid"> 
+            <div class="navbar-header"> 
+                <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#collapse-navbar" aria-expanded="false"> 
+                    <span class="sr-only">Toggle navigation</span> 
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span>                        
+                </button> 
+                <a href="index.jsp" class="navbar-brand text-navbar" >Thunder Pizza</a> 
+            </div> 
+            <div class="collapse navbar-collapse " id="collapse-navbar"  > 
+                <ul class="nav navbar-nav"> 
+                    <!--<li><a class="text-navbar"href="#">Home</a></li>--> 
+                    <!--<li><a class="text-navbar" href="#">Link</a></li>-->
+                    <!--<li><a class="text-navbar" href="#">Link</a></li>--> 
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="text-navbar" href="register"><span class="glyphicon glyphicon-user text-navbar"></span> Cadastrar</a></li>
+                    <li><a class="text-navbar" href="login"><span class="glyphicon glyphicon-log-in text-navbar"></span> Entrar</a></li>
+                </ul>
+            </div> 
+        </div>
+    </nav>
+    
+    <div ng-view></div>
+    
+</html>
