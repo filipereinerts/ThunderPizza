@@ -24,6 +24,10 @@ myApp.config(function($routeProvider, $locationProvider){
           templateUrl: 'views/cardapio.html',
           controller: 'mainController'
         })
+        .when('/montagem', {
+          templateUrl: 'views/montagem.html',
+          controller: 'mainController'
+        })
         
         .otherwise ({ redirectTo: '/' });
     

@@ -40,7 +40,7 @@
         <div class="col-lg-6 col-md-6 col-md-offset-3 col-lg-offset-3" style="margin-top:  15%">
        
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="margin-top: 25px">
-                <a class="btn btn-danger btn-block btn-lg" href="montagemPage.jsp">Monte sua Pizza</a> 
+                <a class="btn btn-danger btn-block btn-lg" href="montagem">Monte sua Pizza</a> 
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="margin-top: 25px">

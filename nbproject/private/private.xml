@@ -3,14 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/filipe/Projetos/ThunderPizza/web/views/login.html</file>
-            <file>file:/home/filipe/Projetos/ThunderPizza/nbproject/build-impl.xml</file>
-            <file>file:/home/filipe/Projetos/ThunderPizza/src/java/Databases/AbstractFacade.java</file>
-            <file>file:/home/filipe/Projetos/ThunderPizza/src/java/Models/Cliente.java</file>
-            <file>file:/home/filipe/Projetos/ThunderPizza/web/index.html</file>
-            <file>file:/home/filipe/Projetos/ThunderPizza/src/java/Models/Usuario.java</file>
-            <file>file:/home/filipe/Projetos/ThunderPizza/web/WEB-INF/web.xml</file>
-            <file>file:/home/filipe/Projetos/ThunderPizza/web/js/app.js</file>
+            <file>file:/home/matheus/Projetos/ThunderPizza/src/java/Databases/AbstractFacade.java</file>
         </group>
     </open-files>
 </project-private>
