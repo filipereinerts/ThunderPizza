@@ -62,74 +62,7 @@
         
         <jsp:include page="navbar.html" /> 
           
-           <h2 class="text-center" style="margin-bottom: 20px">Cardápio</h2>
            
-           <div class="fade">
-               <div id = "caixa">
-                   <img src="http://www.gopizza.com.br/imagens/card/card_86.jpg" height="250"> <br/>
-                   <h3 style="padding: 10px;margin: 0px; border-top: 2px solid gray"><center>Calabresa</center></h3>
-                  
-               </div>
-           </div>
-           
-
-           <div class="fade">
-               <div id = "caixa">
-                   <img src="http://www.gopizza.com.br/imagens/card/card_18.jpg" height="250"> <br/>
-                   <h3 style="padding: 10px;margin: 0px; border-top: 2px solid gray"><center>Frango</center></h3>
-               </div>
-           </div>
-           
-           <div class="fade">
-               <div id = "caixa">
-                   <img src="http://www.gopizza.com.br/imagens/card/card_15.jpg" height="250"> <br/>
-                   <h3 style="padding: 10px;margin: 0px; border-top: 2px solid gray"><center>Marguerita</center></h3>
-               </div>
-           </div>
-           
-           <div class="fade">
-               <div id = "caixa">
-                   <img src="http://www.gopizza.com.br/imagens/card/card_70.jpg" height="250"> <br/>
-                   <h3 style="padding: 10px;margin: 0px; border-top: 2px solid gray"><center>Sensação</center></h3>
-               </div>
-           </div>
-           
-           <div class="fade">
-               <div id = "caixa">
-                   <img src="http://www.gopizza.com.br/imagens/card/card_20.jpg" height="250"> <br/>
-                   <h3 style="padding: 10px;margin: 0px; border-top: 2px solid gray"><center>Chocolate Preto</center></h3>
-               </div>
-           </div>
-           
-           <div class="fade">
-               <div id = "caixa">
-                   <img src="http://www.gopizza.com.br/imagens/card/card_40.jpg" height="250"> <br/>
-                   <h3 style="padding: 10px;margin: 0px; border-top: 2px solid gray"><center>Chocolate Branco</center></h3>
-               </div>
-           </div>
-           
-           <div class="fade">
-               <div id = "caixa">
-                   <img src="http://www.gopizza.com.br/imagens/card/card_63.jpg" height="250"> <br/>
-                   <h3 style="padding: 10px;margin: 0px; border-top: 2px solid gray"><center>Camarão</center></h3>
-               </div>
-           </div>
-           
-            <div class="fade">
-               <div id = "caixa">
-                   <img src="pizza-nutella.png" height="250"> <br/>
-                   <h3 style="padding: 10px;margin: 0px; border-top: 2px solid gray"><center>Nutella</center></h3>
-               </div>
-           </div>
-           
-            <div class="fade">
-               <div id = "caixa">
-                   <img src="http://www.gopizza.com.br/imagens/card/card_4.jpg" height="250"> <br/>
-                   <h3 style="padding: 10px;margin: 0px; border-top: 2px solid gray"><center>6 Queijos</center></h3>
-               </div>
-           </div>                     
-          
-       </div>
        
     </body>
 </html>

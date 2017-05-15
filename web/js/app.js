@@ -20,6 +20,10 @@ myApp.config(function($routeProvider, $locationProvider){
           templateUrl: 'views/login.html',
           controller: 'mainController'
         })
+        .when('/cardapio', {
+          templateUrl: 'views/cardapio.html',
+          controller: 'mainController'
+        })
         
         .otherwise ({ redirectTo: '/' });
     
