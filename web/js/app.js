@@ -2,7 +2,7 @@ var myApp = angular.module('myApp', ['ngRoute']);
 
 myApp.config(function($routeProvider, $locationProvider){
    
-    $locationProvider.html5Mode(true);
+    $locationProvider.hashPrefix('');
     
     $routeProvider
         
@@ -26,6 +26,10 @@ myApp.config(function($routeProvider, $locationProvider){
         })
         .when('/montagem', {
           templateUrl: 'views/montagem.html',
+          controller: 'montagemController'
+        })
+        .when('/pedidos', {
+          templateUrl: 'views/pedidos.html',
           controller: 'mainController'
         })
         
@@ -38,5 +42,18 @@ myApp.controller('mainController', ['$scope', function($scope){
         
         
 }]);
+
+myApp.controller('montagemController', ['$scope', function($scope){
+
+    $scope.tabSelected = 0;
+    
+    $scope.isSelected = function(index){
+        
+        return this.tabSelected === index ? 'active' : ''
+        
+    }
+        
+}]);
+
 
 

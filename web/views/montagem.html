@@ -9,14 +9,14 @@ and open the template in the editor.
         <div id="tabs-montagem">
 
             <ul class="nav nav-tabs" data-tabs="tabs">
-                <li class="active"><a data-toggle="tab" id="ttamanho" href="#tab-tamanho">Tamanho</a></li>
-                <li><a data-toggle="tab" id="tsabores" href="#tab-sabores">Sabores</a></li>
-                <li><a data-toggle="tab" id="topcionais" href="#tab-opcionais">Opcionais</a></li>
-                <li><a data-toggle="tab" id="tfinalizacoes"href="#tab-finalizacoes">Finalizações</a></li>
+                <li class="active"><a data-toggle="tab" ng-click="tabSelected = 0">Tamanho</a></li>
+                <li><a data-toggle="tab" ng-click="tabSelected = 1">Sabores</a></li>
+                <li><a data-toggle="tab" ng-click="tabSelected = 2">Opcionais</a></li>
+                <li><a data-toggle="tab" ng-click="tabSelected = 3">Finalizações</a></li>
             </ul>
 
-            <div class="tab-content" id="tabs">
-                <div class="tab-pane active" id="tab-tamanho">
+            <div class="tab-content">
+                <div class="tab-pane" ng-class="isSelected(0)">
                     <div class="col-lg-8 col-lg-offset-2 text-center" style="margin-top: 20px">
 
                         <div class="col-lg-2" style="margin-right: 20px;">
@@ -62,7 +62,7 @@ and open the template in the editor.
                     <a id="btn-next-tamanho" class="btn btn-danger col-lg-offset-9" >Proximo</a>
                 </div>
 
-                <div class="tab-pane" id="tab-sabores">
+                <div class="tab-pane" ng-class="isSelected(1)">
                     <div class="col-lg-3 col-md-3">
 
                         <div class="col-lg-12 col-md-12">
@@ -171,7 +171,7 @@ and open the template in the editor.
                     </div>
                 </div>
 
-                <div class="tab-pane" id="tab-opcionais">
+                <div class="tab-pane" ng-class="isSelected(2)">
                     <div class="col-lg-9 col-md-9 col-lg-offset-2 col-md-offset-2">
 
                         <div class="md 4 col-lg-4">
@@ -241,7 +241,7 @@ and open the template in the editor.
                     </div>
                 </div>
 
-                <div class="tab-pane" id="tab-finalizacoes">
+                <div class="tab-pane" ng-class="isSelected(3)">
 
                     <div class="col-lg-6 col-md-6" style="margin-top: 20px;">
 
