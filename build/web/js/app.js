@@ -32,6 +32,14 @@ myApp.config(function($routeProvider, $locationProvider){
           templateUrl: 'views/pedidos.html',
           controller: 'mainController'
         })
+        .when('/registro', {
+          templateUrl: 'views/registro.html',
+          controller: 'mainController'
+        })
+        .when('/login', {
+          templateUrl: 'views/loginS.html',
+          controller: 'mainController'
+        })
         
         .otherwise ({ redirectTo: '/' });
     
@@ -50,6 +58,17 @@ myApp.controller('montagemController', ['$scope', function($scope){
     $scope.isSelected = function(index){
         
         return this.tabSelected === index ? 'active' : ''
+        
+    };
+    
+    $scope.nextTab = function(){
+        
+        this.tabSelected++;
+        
+    }
+    $scope.prevTab = function(){
+        
+        this.tabSelected--;
         
     }
         

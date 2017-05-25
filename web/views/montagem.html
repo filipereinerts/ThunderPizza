@@ -9,10 +9,10 @@ and open the template in the editor.
         <div id="tabs-montagem">
 
             <ul class="nav nav-tabs" data-tabs="tabs">
-                <li class="active"><a data-toggle="tab" ng-click="tabSelected = 0">Tamanho</a></li>
-                <li><a data-toggle="tab" ng-click="tabSelected = 1">Sabores</a></li>
-                <li><a data-toggle="tab" ng-click="tabSelected = 2">Opcionais</a></li>
-                <li><a data-toggle="tab" ng-click="tabSelected = 3">Finalizações</a></li>
+                <li ng-class="isSelected(0)"><a ng-click="tabSelected = 0">Tamanho</a></li>
+                <li ng-class="isSelected(1)"><a ng-click="tabSelected = 1">Sabores</a></li>
+                <li ng-class="isSelected(2)"><a ng-click="tabSelected = 2">Opcionais</a></li>
+                <li ng-class="isSelected(3)"><a ng-click="tabSelected = 3">Finalizações</a></li>
             </ul>
 
             <div class="tab-content">
@@ -56,10 +56,7 @@ and open the template in the editor.
                         </div>
 
                     </div>
-                    <div class="col-lg-12 col-md-12">
-                        <a class="btn btn-danger btn-lg pull-right" id="btn-proximo1" onclick="$('#tabs-montagem').tabs('select', 1);" style="display: none">Próximo</a>
-                    </div>
-                    <a id="btn-next-tamanho" class="btn btn-danger col-lg-offset-9" >Proximo</a>
+                    <a ng-click="nextTab()" class="btn btn-danger  col-lg-offset-9" >Proximo</a>
                 </div>
 
                 <div class="tab-pane" ng-class="isSelected(1)">
@@ -166,8 +163,8 @@ and open the template in the editor.
                     </div>
 
                     <div class="col-lg-12 col-md-12 form-group" style="margin-top: 10px">
-                        <a id="btn-prev-sabores" class="btn btn-danger col-lg-offset-2 " >Anterior</a>
-                        <a id="btn-next-sabores" class="btn btn-danger col-lg-offset-7 " >Proximo</a>
+                        <a ng-click="prevTab()" class="btn btn-danger col-lg-offset-2 " >Anterior</a>
+                        <a ng-click="nextTab()" class="btn btn-danger col-lg-offset-7 " >Proximo</a>
                     </div>
                 </div>
 
@@ -236,8 +233,8 @@ and open the template in the editor.
 
                     </div>
                     <div class="col-lg-12 col-md-12 form-group" style="margin-top: 10px">
-                        <a id="btn-prev-opcionais" class="btn btn-danger col-lg-offset-2 " >Anterior</a>
-                        <a id="btn-next-opcionais" class="btn btn-danger col-lg-offset-7 " >Proximo</a>
+                        <a ng-click="prevTab()" class="btn btn-danger col-lg-offset-2 " >Anterior</a>
+                        <a ng-click="nextTab()" class="btn btn-danger col-lg-offset-7 " >Proximo</a>
                     </div>
                 </div>
 
@@ -297,7 +294,7 @@ and open the template in the editor.
 
                     </div>
                     <div class="col-lg-12 col-md-12 form-group" style="margin-top: 10px">
-                        <a id="btn-prev-finalizacoes" class="btn btn-danger col-lg-offset-2 " >Anterior</a>
+                        <a ng-click="prevTab()" class="btn btn-danger col-lg-offset-2 " >Anterior</a>
                         <button type="submit" class="btn btn-danger col-lg-offset-2 " >Finalizar pedido</button>
                     </div>
                 </div>

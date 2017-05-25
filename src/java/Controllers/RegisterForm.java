@@ -5,8 +5,10 @@
  */
 package Controllers;
 
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javafx.scene.control.Alert;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author matheus
  */
-@WebServlet(name = "OrderForm", urlPatterns = {"/OrderForm"})
-public class OrderForm extends HttpServlet {
+@WebServlet(name = "RegisterForm", urlPatterns = {"/RegisterForm"})
+public class RegisterForm extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +39,10 @@ public class OrderForm extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet OrderForm</title>");            
+            out.println("<title>Servlet RegisterForm</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet OrderForm at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet RegisterForm at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -72,9 +74,22 @@ public class OrderForm extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
+        PrintWriter out = response.getWriter();
+         String nome = request.getParameter("nome");
+         String telefone = request.getParameter("telefone");
+         String email = request.getParameter("email");
+         String cpf = request.getParameter("cpf");
+         String endereco = request.getParameter("endereco");
+         String senha = request.getParameter("senha");
+         String confSenha = request.getParameter("confSenha");
+         out.println(confSenha);
+
+         
+         
+         out.println("<html><body onload=\"alert('Cadastro efetuado com sucesso!')\"></body></html>");
+         
     }
-    
 
     /**
      * Returns a short description of the servlet.
