@@ -13,12 +13,12 @@ myApp.config(function($routeProvider, $locationProvider){
 
         .when('/register', {
           templateUrl: 'views/register.html',
-          controller: 'mainController'
+          controller: 'registerController'
         })
 
         .when('/login', {
           templateUrl: 'views/login.html',
-          controller: 'mainController'
+          controller: 'loginController'
         })
         .when('/cardapio', {
           templateUrl: 'views/cardapio.html',
@@ -36,10 +36,6 @@ myApp.config(function($routeProvider, $locationProvider){
           templateUrl: 'views/registro.html',
           controller: 'mainController'
         })
-        .when('/login', {
-          templateUrl: 'views/loginS.html',
-          controller: 'mainController'
-        })
         
         .otherwise ({ redirectTo: '/' });
     
@@ -50,6 +46,25 @@ myApp.controller('mainController', ['$scope', function($scope){
         
         
 }]);
+
+myApp.controller('loginController', ['$scope', function ($scope){
+    
+    $scope.models = {};
+    $scope.models.usuario = null;
+    $scope.models.senha = null;
+    
+    $scope.submit = function (){
+      alert("ok");  
+    };
+    
+}]);
+
+myApp.controller('registerController', ['$scope', function ($scope){
+    $scope.submit = function(){
+      alert("ok");  
+    };
+}]);
+
 
 myApp.controller('montagemController', ['$scope', function($scope){
 
