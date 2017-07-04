@@ -10,12 +10,10 @@ myApp.config(function($routeProvider, $locationProvider){
           templateUrl: 'views/home.html',
           controller: 'mainController'
         })
-
-        .when('/register', {
-          templateUrl: 'views/register.html',
-          controller: 'mainController'
+        .when('/registro', {
+          templateUrl: 'views/registro.html',
+          controller: 'registerController'
         })
-
         .when('/login', {
           templateUrl: 'views/login.html',
           controller: 'mainController'
@@ -32,12 +30,16 @@ myApp.config(function($routeProvider, $locationProvider){
           templateUrl: 'views/pedidos.html',
           controller: 'mainController'
         })
-        .when('/registro', {
-          templateUrl: 'views/registro.html',
+        .when('/cliente', {
+          templateUrl: 'views/listacliente.html',
           controller: 'mainController'
         })
-        .when('/login', {
-          templateUrl: 'views/loginS.html',
+        .when('/produto', {
+          templateUrl: 'views/listaproduto.html',
+          controller: 'mainController'
+        })
+         .when('/usuario', {
+          templateUrl: 'views/listausuario.html',
           controller: 'mainController'
         })
         
@@ -51,13 +53,42 @@ myApp.controller('mainController', ['$scope', function($scope){
         
 }]);
 
+myApp.controller('registerController', ['$scope', '$http', function($scope, $http){
+
+    $scope.models = {};
+    $scope.models.nome = "oi";
+    $scope.models.cpf = "oi";
+    $scope.models.email = "oi";
+    $scope.models.telefone = "oi";
+    $scope.models.celular = "oi";
+    $scope.models.cidade = "oi";
+    $scope.models.bairro = "oi";
+    $scope.models.cep = "oi";
+    $scope.models.logradouro = "oi";
+    $scope.models.numero = "oi";
+    $scope.models.complemento = "oi";
+    $scope.models.senha = "oi";
+    $scope.models.tipo = "oi";
+    
+    $scope.submit = function(){
+        
+        $http({
+            method: 'POST',
+            url: "/api/usuario",
+            data: $scope.models
+       }); 
+        
+    };
+        
+}]);
+
 myApp.controller('montagemController', ['$scope', function($scope){
 
     $scope.tabSelected = 0;
     
     $scope.isSelected = function(index){
         
-        return this.tabSelected === index ? 'active' : ''
+        return this.tabSelected === index ? 'active' : '';
         
     };
     
