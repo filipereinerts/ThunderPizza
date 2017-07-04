@@ -9,12 +9,17 @@ import Models.Usuario;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
 
 /**
  *
  * @author filipe
  */
 @Stateless
+@Path("usuario")
 public class UsuarioFacade extends AbstractFacade<Usuario> {
 
     @PersistenceContext(unitName = "ThunderPizzaPU")
@@ -27,6 +32,20 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
 
     public UsuarioFacade() {
         super(Usuario.class);
+    }
+    
+    @POST
+    @Override
+    @Consumes({"application/xml", "application/json"})
+    public void create(Usuario entity) {
+        entity.getId();
+        
+    }
+    
+    @GET
+    @Consumes({"application/xml", "application/json"})
+    public void teste(Usuario entity) {
+        
     }
     
 }

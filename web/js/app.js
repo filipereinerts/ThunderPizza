@@ -10,13 +10,19 @@ myApp.config(function($routeProvider, $locationProvider){
           templateUrl: 'views/home.html',
           controller: 'mainController'
         })
+<<<<<<< HEAD
         .when('/registro', {
           templateUrl: 'views/registro.html',
+=======
+
+        .when('/register', {
+          templateUrl: 'views/register.html',
+>>>>>>> 68f17296fcbd0244122f2c44c81372f7da10a7a5
           controller: 'registerController'
         })
         .when('/login', {
           templateUrl: 'views/login.html',
-          controller: 'mainController'
+          controller: 'loginController'
         })
         .when('/cardapio', {
           templateUrl: 'views/cardapio.html',
@@ -80,6 +86,18 @@ myApp.controller('registerController', ['$scope', '$http', function($scope, $htt
         
     };
         
+}]);
+
+myApp.controller('loginController', ['$scope', function ($scope){
+    
+    $scope.models = {};
+    $scope.models.usuario = null;
+    $scope.models.senha = null;
+    
+    $scope.submit = function (){
+      alert("ok");  
+    };
+    
 }]);
 
 myApp.controller('montagemController', ['$scope', function($scope){

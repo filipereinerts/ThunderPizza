@@ -1,4 +1,4 @@
-<div class="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3" style="margin-top: 10px">
+<div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2" style="margin-top: 10px">
     
     <div class="panel panel-danger">
         
@@ -8,40 +8,98 @@
         
         <div class="panel-body">
             
-            <form class="form-horizontal group-border stripped">
+            <form class="form-horizontal group-border">
+
+                
+                <div class="form-group">
+                    <label class="control-label col-lg-2 col-md-2">Nome</label>
+                    <div class="col-lg-10 col-md-10">
+                        <input class="form-control" type="text" ng-model="models.nome"/>
+                    </div>
+                </div>
         
                 <div class="form-group">
-                    <label class="control-label col-lg-2 col-md-2">Nome</label>
+                    <label class="control-label col-lg-2 col-md-2">CPF</label>
                     <div class="col-lg-10 col-md-10">
-                        <input class="form-control" type="text"/>
+                        <input class="form-control" type="text" ng-model="models.cpf"/>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label class="control-label col-lg-2 col-md-2">Email</label>
+                    <div class="col-lg-10 col-md-10">
+                        <input class="form-control" type="text" ng-model="models.email"/>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label class="control-label col-lg-2 col-md-2">Telefone</label>
+                    <div class="col-lg-4 col-md-4">
+                        <input class="form-control" type="text" ng-model="models.telefone"/>
+                    </div>
+                    <label class="control-label col-lg-2 col-md-2">Celular</label>
+                    <div class="col-lg-4 col-md-4">
+                        <input class="form-control" type="text" ng-model="models.celular"/>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-lg-2 col-md-2">Nome</label>
+                    <label class="control-label col-lg-2 col-md-2">Cidade</label>
                     <div class="col-lg-10 col-md-10">
-                        <input class="form-control" type="text"/>
+                        <input class="form-control" type="text" ng-model="models.cidade"/>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-lg-2 col-md-2">Nome</label>
+                    <label class="control-label col-lg-2 col-md-2">Bairro</label>
                     <div class="col-lg-10 col-md-10">
-                        <input class="form-control" type="text"/>
+                        <input class="form-control" type="text" ng-model="models.bairro"/>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-lg-2 col-md-2">Nome</label>
+                    <label class="control-label col-lg-2 col-md-2">CEP</label>
                     <div class="col-lg-10 col-md-10">
-                        <input class="form-control" type="text"/>
+                        <input class="form-control" type="text" ng-model="models.cep"/>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-lg-2 col-md-2">Nome</label>
+                    <label class="control-label col-lg-2 col-md-2">Logradouro</label>
+                    <div class="col-lg-4 col-md-4">
+                        <input class="form-control" type="text" ng-model="models.logradouro"/>
+                    </div>
+                    <label class="control-label col-lg-2 col-md-2">Número</label>
+                    <div class="col-lg-4 col-md-4">
+                        <input class="form-control" type="text" ng-model="models.numero"/>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="control-label col-lg-2 col-md-2">Complemento</label>
                     <div class="col-lg-10 col-md-10">
-                        <input class="form-control" type="text"/>
+                        <input class="form-control" type="text" ng-model="models.complemento"/>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="control-label col-lg-2 col-md-2">Senha</label>
+                    <div class="col-lg-10 col-md-10">
+                        <input class="form-control" type="text" ng-model="models.senha"/>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="control-label col-lg-2 col-md-2">Confirmar Senha</label>
+                    <div class="col-lg-10 col-md-10">
+                        <input class="form-control" type="text" ng-model="models.senha2"/>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="control-label col-lg-2 col-md-2"></label>
+                    <div class="col-lg-10 col-md-10">
+                        <a class="btn btn-danger" ng-click="submit()">Cadastrar</a>
                     </div>
                 </div>
 
