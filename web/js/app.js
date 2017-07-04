@@ -10,14 +10,8 @@ myApp.config(function($routeProvider, $locationProvider){
           templateUrl: 'views/home.html',
           controller: 'mainController'
         })
-<<<<<<< HEAD
         .when('/registro', {
           templateUrl: 'views/registro.html',
-=======
-
-        .when('/register', {
-          templateUrl: 'views/register.html',
->>>>>>> 68f17296fcbd0244122f2c44c81372f7da10a7a5
           controller: 'registerController'
         })
         .when('/login', {
