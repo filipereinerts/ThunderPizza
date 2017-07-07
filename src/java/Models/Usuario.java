@@ -6,126 +6,154 @@
 package Models;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author filipe
+ * @author 1978233
  */
 @Entity
-@Table(name = "USUARIO")
+@SequenceGenerator(name = "usuario_seq")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u"),
-    @NamedQuery(name = "Usuario.findById", query = "SELECT u FROM Usuario u WHERE u.id = :id"),
-    @NamedQuery(name = "Usuario.findByNome", query = "SELECT u FROM Usuario u WHERE u.nome = :nome"),
-    @NamedQuery(name = "Usuario.findByEmail", query = "SELECT u FROM Usuario u WHERE u.email = :email"),
-    @NamedQuery(name = "Usuario.findByUsuario", query = "SELECT u FROM Usuario u WHERE u.usuario = :usuario")})
 public class Usuario implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "ID")
-    private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
-    @Column(name = "NOME")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario_seq")
+    private Long id;
     private String nome;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="E-mail inválido")//if the field contains email address consider using this annotation to enforce field validation
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
-    @Column(name = "EMAIL")
+    private String cpf;
     private String email;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
-    @Column(name = "USUARIO")
-    private String usuario;
+    private String telefone;
+    private String celular;
+    private String cidade;
+    private String bairro;
+    private String cep;
+    private String logradouro;
+    private String numero;
+    private String complemento;
+    private String senha;
+    private String tipo;
 
-    public Usuario() {
-    }
-
-    public Usuario(Integer id) {
-        this.id = id;
-    }
-
-    public Usuario(Integer id, String nome, String email, String usuario) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.usuario = usuario;
-    }
-
-    public Integer getId() {
+    public Long getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public String getCpf() {
+        return cpf;
     }
 
     public String getEmail() {
         return email;
     }
 
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public String getLogradouro() {
+        return logradouro;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Usuario)) {
-            return false;
-        }
-        Usuario other = (Usuario) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
     }
 
-    @Override
-    public String toString() {
-        return "Models.Usuario[ id=" + id + " ]";
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
     
+    
+
 }
