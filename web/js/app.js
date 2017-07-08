@@ -132,7 +132,7 @@ myApp.controller('loginController', ['$scope', function ($scope){
     
 }]);
 
-myApp.controller('montagemController', ['$scope', function($scope){
+myApp.controller('montagemController', ['$scope', '$http', function($scope, $http){
         
     $scope.models = {};
     $scope.models.tamanho = '';
