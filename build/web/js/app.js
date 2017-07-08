@@ -23,6 +23,10 @@ myApp.config(function($routeProvider, $locationProvider){
           controller: 'mainController'
         })
         .when('/montagem', {
+          templateUrl: 'views/montagem2.html',
+          controller: 'montagemController'
+        })
+        .when('/montagem2', {
           templateUrl: 'views/montagem.html',
           controller: 'montagemController'
         })
@@ -94,6 +98,8 @@ myApp.controller('registerController', ['$scope', '$http', function($scope, $htt
         
         delete $scope.models.senha2;
         
+        window.location.hash = "/login";
+        
         $http({
             method: 'POST',
             url: "/api/usuario",
@@ -113,31 +119,205 @@ myApp.controller('loginController', ['$scope', function ($scope){
     $scope.models.senha = null;
     
     $scope.submit = function (){
-      alert("ok");  
+       
+        $http({
+            method: 'POST',
+            url: "/api/usuario",
+            data: $scope.models
+        }).then(function() {
+            window.location.href = "/";
+        }); 
+       
     };
     
 }]);
 
 myApp.controller('montagemController', ['$scope', function($scope){
+        
+    $scope.models = {};
+    $scope.models.tamanho = '';
+    $scope.models.quantidadeSabores = '';
+    $scope.models.observacoes = '';
+    
+    $scope.models.saboresEscolhidos = [];
+    $scope.models.bebidasEscolhidas = [];
+    $scope.models.bordasEscolhidas = [];
+    $scope.models.adicionaisEscolhidos = [];
 
-    $scope.tabSelected = 0;
+    $scope.models.bordasPossiveis = [
+        
+        {
+            "id": 1,
+            "nome": 'Chocolate Branco'
+        },
+        {
+            "id": 2,
+            "nome": 'Chocolate Preto'
+        },
+        {
+            "id": 3,
+            "nome": 'Catupiry'
+        }
+        
+    ];
+
+    $scope.models.adicionaisPossiveis = [
+        
+        {
+            "id": 1,
+            "nome": 'Bacon'
+        },
+        {
+            "id": 2,
+            "nome": 'Cheddar'
+        },
+        {
+            "id": 3,
+            "nome": 'Catupiry'
+        }
+        
+    ];
     
-    $scope.isSelected = function(index){
+    $scope.models.bebidasPossiveis = [
         
-        return this.tabSelected === index ? 'active' : '';
+        {
+            "id": 1,
+            "nome": 'Coca Cola'
+        },
+        {
+            "id": 2,
+            "nome": 'Fanta Uva'
+        },
+        {
+            "id": 3,
+            "nome": 'Guaraná'
+        }
         
-    };
+    ];
     
-    $scope.nextTab = function(){
+    $scope.models.saboresPossiveis = 
         
-        this.tabSelected++;
+        {
+            
+            "Tradicionais" : [
+                {
+                    "id": 1,
+                    "nome": 'Calabresa'  
+                },
+                {
+                    "id": 2,
+                    "nome": 'Frango'  
+                },
+                {
+                    "id": 3,
+                    "nome": 'Marguerita'  
+                }   
+            ],
+            
+            "Doces" : [
+                {
+                    "id": 4,
+                    "nome": 'Sensação'  
+                },
+                {
+                    "id": 5,
+                    "nome": 'Chocolate Preto'  
+                },
+                {
+                    "id": 6,
+                    "nome": 'Chocolate Branco'  
+                }   
+            ],
+            
+            "Especiais" : [
+                {
+                    "id": 7,
+                    "nome": 'Camarão'  
+                },
+                {
+                    "id": 8,
+                    "nome": 'Nutella'  
+                },
+                {
+                    "id": 9,
+                    "nome": '6 Queijos'  
+                }   
+            ]
+        };
         
-    }
-    $scope.prevTab = function(){
+        $scope.models.selectSabor = function(saborId){
+            
+            var idx = $scope.models.saboresEscolhidos.indexOf(saborId);
+
+            if (idx > -1) {
+              
+                $scope.models.saboresEscolhidos.splice(idx, 1);
+                
+            } else {
+                
+                if($scope.models.saboresEscolhidos.length >= $scope.models.quantidadeSabores) return;
+                
+                $scope.models.saboresEscolhidos.push(saborId);
+              
+            }
         
-        this.tabSelected--;
+        };
         
-    }
+        $scope.models.selectBebida = function(bebidaId){
+            
+            var idx = $scope.models.bebidasEscolhidas.indexOf(bebidaId);
+
+            if (idx > -1) {
+                $scope.models.bebidasEscolhidas.splice(idx, 1);
+            } else {
+                $scope.models.bebidasEscolhidas.push(bebidaId);
+            }
+        
+        };
+        
+        $scope.models.selectAdicional = function(adicionalId){
+            
+            var idx = $scope.models.adicionaisEscolhidos.indexOf(adicionalId);
+
+            if (idx > -1) {
+                $scope.models.adicionaisEscolhidos.splice(idx, 1);
+            } else {
+                $scope.models.adicionaisEscolhidos.push(adicionalId);
+            }
+        
+        };
+        
+        $scope.models.selectBorda = function(bordaId){
+            
+            var idx = $scope.models.bordasEscolhidas.indexOf(bordaId);
+
+            if (idx > -1) {
+                $scope.models.bordasEscolhidas.splice(idx, 1);
+            } else {
+                $scope.models.bordasEscolhidas.push(bordaId);
+            }
+        
+        };
+        
+        $scope.submit = function(){
+            
+            var dados = {};
+            dados.tamanho = $scope.models.tamanho;
+            dados.sabores = JSON.stringify($scope.models.saboresEscolhidos);
+            dados.bebidas = JSON.stringify($scope.models.bebidasEscolhidos);
+            dados.bordas = JSON.stringify($scope.models.bordasEscolhidos);
+            dados.adicionais = JSON.stringify($scope.models.adicionaisEscolhidos);
+            dados.observacoes = $scope.models.observacoes;
+            
+            $http({
+                method: 'POST',
+                url: "/api/pedido",
+                data: dados
+            }).then(function() {
+                window.location.href = "/";
+            }); 
+            
+        }
         
 }]);
 
