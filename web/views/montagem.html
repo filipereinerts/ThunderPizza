@@ -1,380 +1,153 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <form method="POST" action="/ThunderPizza/OrderForm" class="group-border form-horizontal">
-        <div id="tabs-montagem">
+<div class='col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2'>
 
-            <ul class="nav nav-tabs" data-tabs="tabs">
-                <li ng-class="isSelected(0)"><a ng-click="tabSelected = 0">Tamanho</a></li>
-                <li ng-class="isSelected(1)"><a ng-click="tabSelected = 1">Sabores</a></li>
-                <li ng-class="isSelected(2)"><a ng-click="tabSelected = 2">Opcionais</a></li>
-                <li ng-class="isSelected(3)"><a ng-click="tabSelected = 3">Finalizações</a></li>
-            </ul>
+    <div class="panel panel-danger">
 
-            <div class="tab-content">
-                <div class="tab-pane" ng-class="isSelected(0)">
-                    <div class="col-lg-8 col-lg-offset-2 text-center" style="margin-top: 20px">
+        <div class="panel-heading">
+            <h3 class="panel-title">Montagem da Pizza</h3>
+        </div>
 
-                        <div class="col-lg-2" style="margin-right: 20px;">
-                            <img src="http://www.oypizza.com.br/imagens/img_pedd_grnd.png" style="width: 100px; margin-top: 75px">
-                            <div class="row" style="margin-top: 20px">
-                                <div class="radio">
-                                    <label class="control-label"><input type="radio" class="radio-tamanho" name="option-tamanho">Broto</label>
-                                </div>
-                            </div>
-                        </div>
+        <div class="panel-body">
 
-                        <div class="col-lg-2" style="margin-right: 20px;">
-                            <img src="http://www.oypizza.com.br/imagens/img_pedd_grnd.png" style="width: 150px; margin-top: 50px">
-                            <div class="row" style="margin-top: 20px">
-                                <div class="radio">
-                                    <label class="control-label"><input type="radio" class="radio-tamanho" name="option-tamanho">Pequena</label>
-                                </div>
-                            </div>
-                        </div>
+            <form class="group-border form-horizontal">
 
-                        <div class="col-lg-3" style="margin-right: 20px;">
-                            <img src="http://www.oypizza.com.br/imagens/img_pedd_grnd.png" style="width: 200px;margin-top: 25px">
-                            <div class="row" style="margin-top: 20px">
-                                <div class="radio">
-                                    <label class="control-label"><input type="radio" class="radio-tamanho" name="option-tamanho">Média</label>
-                                </div>
-                            </div>
-                        </div>
+                <div class="form-group">
+                    
+                    <label class="label-control col-lg-2 col-md-2">Tamanho</label>
 
-                        <div class="col-lg-3">
-                            <img src="http://www.oypizza.com.br/imagens/img_pedd_grnd.png" style="width: 250px">
-                            <div class="row" style="margin-top: 20px">
-                                <div class="radio">
-                                    <label class="control-label"><input type="radio" class="radio-tamanho" name="option-tamanho">Grande</label>
-                                </div>
-                            </div>
-                        </div>
-
+                    <div class="col-lg-10 col-md-10">
+                        <select class="form-control" ng-model='models.tamanho'>
+                            <option></option>
+                            <option value="GRANDE">Grande</option>
+                            <option value="MEDIA">Média</option>
+                            <option value="PEQUENA">Pequena</option>
+                            <option value="BROTO">Broto</option>
+                        </select>
                     </div>
-                    <a ng-click="nextTab()" class="btn btn-danger  col-lg-offset-9" >Proximo</a>
+
                 </div>
+                
+                <div class="form-group" ng-show="models.tamanho !== ''">
+                    
+                    <label class="label-control col-lg-2 col-md-2">Sabores</label>
 
-                <div class="tab-pane">
-                    <div class="col-lg-3 col-md-3">
-
-                        <div class="col-lg-12 col-md-12">
-
-                            <h2>Sabores</h2>
-
-                            <div class="radio">
-                                <div class="row">
-                                    <label><input type="radio" name="option-qtd-sabores" class="radio-sabores" value="1">1 sabor</label>
-                                </div>
-                                <div class="row">
-                                    <label><input type="radio" name="option-qtd-sabores" class="radio-sabores" value="2">2 sabores</label>
-                                </div>
-                                <div class="row">
-                                    <label><input type="radio" name="option-qtd-sabores" class="radio-sabores" value="3">3 sabores</label>
-                                </div>
-                                <div class="row">
-                                    <label><input type="radio" name="option-qtd-sabores" class="radio-sabores" value="4">4 sabores</label>
-                                </div>
-                            </div>
-
-                        </div>
-
+                    <div class="col-lg-10 col-md-10">
+                        <select class="form-control" ng-model='models.quantidadeSabores'>
+                            <option></option>
+                            <option>1</option>
+                            <option ng-show="models.tamanho !== 'BROTO'">2</option>
+                            <option ng-show="models.tamanho !== 'BROTO' && models.tamanho !== 'PEQUENA'">3</option>
+                            <option ng-show="models.tamanho === 'GRANDE'">4</option>
+                        </select>
                     </div>
 
-                    <div class="col-lg-9 col-md-9">
+                </div>
+                
+                <div class="form-group" ng-show="models.quantidadeSabores !== ''">
 
-                        <div class="col-md-4 col-lg-4">
-
-                            <h2>Trandicionais</h2>
-
-                            <div class="row">
-
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="checkbox-sabores unselectable" value="1">Calabresa</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="checkbox-sabores" value="2">Frango</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="checkbox-sabores" value="3">Marguerita</label>
-                                </div>
-
-                            </div>
-
+                    <label class="label-control col-lg-2 col-md-2"></label>
+                    
+                    <div class="col-lg-3 col-md-3" ng-repeat="tipos in models.saboresPossiveis">
+                        <div class="checkbox-custom" ng-repeat="sabor in tipos">
+                            
+                            <input 
+                                type="checkbox" 
+                                id="sabor{{sabor.id}}"
+                                ng-disabled="models.saboresEscolhidos.length >= models.quantidadeSabores && models.saboresEscolhidos.indexOf(sabor.id) < 0"
+                                ng-checked="models.saboresEscolhidos.indexOf(sabor.id) > -1"
+                                ng-click="models.selectSabor(sabor.id)"
+                            >
+                            
+                            <label for="sabor{{sabor.id}}" ng-bind="sabor.nome"></label>
+                            
                         </div>
-
-                        <div class="col-md-4 col-lg-4">
-
-                            <h2>Doces</h2>
-
-                            <div class="row">
-
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="checkbox-sabores" value="4">Sensação</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="checkbox-sabores" value="5">Chocolate Preto</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="checkbox-sabores" value="6">Chocolate Branco</label>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-4 col-lg-4">
-
-                            <h2>Especiais</h2>
-
-                            <div class="row">
-
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="checkbox-sabores" value="7">Camarão</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="checkbox-sabores" value="8">Nutella</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="checkbox-sabores" value="9">6 Queijos</label>
-                                </div>
-
-                            </div>
-
-                        </div>
-
                     </div>
 
-                    <div class="col-lg-12 col-md-12">
+                </div>
+                
+                <div class="form-group" ng-show="models.saboresEscolhidos.length == models.quantidadeSabores && models.quantidadeSabores !== ''">
 
-                        <div class="col-lg-3 col-md-3"></div>
-                        <div class="col-lg-9 col-md-9">
-
-                            <h3>Observações</h3>
-
-                            <textarea class="form-control" rows="10" id="comment"></textarea>
-
+                    <label class="label-control col-lg-2 col-md-2">Bebidas</label>
+                    
+                    <div class="col-lg-10 col-md-10">
+                        <div class="checkbox-custom checkbox-inline" ng-repeat="bebida in models.bebidasPossiveis">
+                            
+                            <input 
+                                type="checkbox" 
+                                id="bebida{{bebida.id}}"
+                                ng-checked="models.bebidasEscolhidas.indexOf(bebida.id) > -1"
+                                ng-click="models.selectBebida(bebida.id)"
+                            >
+                            
+                            <label for="bebida{{bebida.id}}" ng-bind="bebida.nome"></label>
+                            
                         </div>
-
                     </div>
 
-                    <div class="col-lg-12 col-md-12 form-group" style="margin-top: 10px">
-                        <a ng-click="prevTab()" class="btn btn-danger col-lg-offset-2 " >Anterior</a>
-                        <a ng-click="nextTab()" class="btn btn-danger col-lg-offset-7 " >Proximo</a>
+                </div>
+                
+                <div class="form-group" ng-show="models.saboresEscolhidos.length == models.quantidadeSabores && models.quantidadeSabores !== ''">
+
+                    <label class="label-control col-lg-2 col-md-2">Bordas</label>
+                    
+                    <div class="col-lg-10 col-md-10">
+                        <div class="checkbox-custom checkbox-inline" ng-repeat="borda in models.bordasPossiveis">
+                            
+                            <input 
+                                type="checkbox" 
+                                id="borda{{borda.id}}"
+                                ng-checked="models.bordasEscolhidas.indexOf(borda.id) > -1"
+                                ng-click="models.selectBorda(borda.id)"
+                            >
+                            
+                            <label for="borda{{borda.id}}" ng-bind="borda.nome"></label>
+                            
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="form-group" ng-show="models.saboresEscolhidos.length == models.quantidadeSabores && models.quantidadeSabores !== ''">
+
+                    <label class="label-control col-lg-2 col-md-2">Adicionais</label>
+                    
+                    <div class="col-lg-10 col-md-10">
+                        <div class="checkbox-custom checkbox-inline" ng-repeat="adicional in models.adicionaisPossiveis">
+                            
+                            <input 
+                                type="checkbox" 
+                                id="adicional{{adicional.id}}"
+                                ng-checked="models.adicionaisEscolhidos.indexOf(adicional.id) > -1"
+                                ng-click="models.selectAdicional(adicional.id)"
+                            >
+                            
+                            <label for="adicional{{adicional.id}}" ng-bind="adicional.nome"></label>
+                            
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="form-group" ng-show="models.saboresEscolhidos.length == models.quantidadeSabores && models.quantidadeSabores !== ''">
+                    
+                    <label class="col-lg-2 col-md-2">Observações</label>
+                    
+                    <div class="col-lg-10 col-md-10">
+                        <textarea class="form-control" rows="6" ng-model="models.observacoes"></textarea>
+                    </div>
+                    
+                </div>
+                
+                <div class="form-group" ng-show="models.saboresEscolhidos.length == models.quantidadeSabores && models.quantidadeSabores !== ''">
+                    <label class="col-lg-2 col-md-2"></label>
+                    <div class="col-lg-10 col-md-10">
+                        <a class="btn btn-danger" ng-click="submit()">Fazer Pedido</a>
                     </div>
                 </div>
 
-                <div class="tab-pane">
-                    <div class="col-lg-9 col-md-9 col-lg-offset-2 col-md-offset-2">
-
-                        <div class="md 4 col-lg-4">
-
-                            <h2>Bebidas</h2>
-
-                            <div class="row">
-
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Fanta Laranja</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Fanta Uva</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Coca Cola</label>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="md 4 col-lg-4">
-
-                            <h2>Bordas</h2>
-
-                            <div class="row">
-
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Chocolate Branco</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Chocolate Preto</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Catupiry</label>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="md 4 col-lg-4">
-
-                            <h2>Adicionais</h2>
-
-                            <div class="row">
-
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Bacon</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Cheddar</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Catupiry</label>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-lg-12 col-md-12 form-group" style="margin-top: 10px">
-                        <a ng-click="prevTab()" class="btn btn-danger col-lg-offset-2 " >Anterior</a>
-                        <a ng-click="nextTab()" class="btn btn-danger col-lg-offset-7 " >Proximo</a>
-                    </div>
-                </div>
-
-                <div class="tab-pane active">
-
-                    <div class="col-lg-6 col-md-6" style="margin-top: 20px;">
-
-                        <form class="form-horizontal group-border stripped" style="margin-top: 20px">
-
-                            <div class="form-group">
-                                <div class="col-lg-2 col-md-2">
-                                    <label class="control-label">Tamanho</label>
-                                </div>
-                                <div class="col-lg-10 col-md-10">
-                                    <input type="text" class="form-control" disabled="disabled">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-lg-2 col-md-2">
-                                    <label class="control-label">Sabores</label>
-                                </div>
-                                <div class="col-lg-10 col-md-10">
-                                    <input type="text" class="form-control" disabled="disabled">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-lg-2 col-md-2">
-                                    <label class="control-label">Bebidas</label>
-                                </div>
-                                <div class="col-lg-10 col-md-10">
-                                    <input type="text" class="form-control" disabled="disabled">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-lg-2 col-md-2">
-                                    <label class="control-label">Adicionais</label>
-                                </div>
-                                <div class="col-lg-10 col-md-10">
-                                    <input type="text" class="form-control" disabled="disabled">
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <div class="col-lg-2 col-md-2">
-                                    <label class="control-label">Valor total</label>
-                                </div>
-                                <div class="col-lg-10 col-md-10">
-                                    <input type="text" class="form-control" disabled="disabled">
-                                </div>
-                            </div>
-
-                        </form>
-
-                    </div>
-                    <div class="col-lg-12 col-md-12 form-group" style="margin-top: 10px">
-                        <a ng-click="prevTab()" class="btn btn-danger col-lg-offset-2 " >Anterior</a>
-                        <button type="submit" class="btn btn-danger col-lg-offset-2 " >Finalizar pedido</button>
-                    </div>
-                </div>
-
-            </div>
+            </form>
 
         </div>
-    </form>     
 
-</body>
+    </div>
 
-<script>
-
-    $(document).ready(function () {
-
-        var sabor = null;
-
-        $(".radio-sabores").change(function () {
-
-            sabor = $('.radio-sabores:radio:checked').val();
-
-
-            $('.checkbox-sabores').each(function (k, e) {
-
-                $(e).prop('checked', '');
-
-            });
-
-        });
-
-        $('.checkbox-sabores').change(function () {
-
-            if (sabor == null) {
-
-                $(this).prop('checked', '');
-                return;
-
-            }
-
-            var qtd_sabores = $('.checkbox-sabores:checkbox:checked').length;
-
-            if (qtd_sabores > sabor) {
-
-                $(this).prop('checked', '');
-                return;
-            }
-
-        });
-
-        $('#btn-next-tamanho').click(function () {
-
-            $('#tsabores').tab('show');
-        });
-
-
-        $('#btn-next-sabores').click(function () {
-
-            $('#topcionais').tab('show');
-        });
-        $('#btn-prev-sabores').click(function () {
-
-            $('#ttamanho').tab('show');
-        });
-
-
-        $('#btn-next-opcionais').click(function () {
-
-            $('#tfinalizacoes').tab('show');
-        });
-        $('#btn-prev-opcionais').click(function () {
-
-            $('#tsabores').tab('show');
-        });
-
-        $('#btn-prev-finalizacoes').click(function () {
-
-            $('#topcionais').tab('show');
-        });
-    });
-
-</script>
-
-</html>
+</div>
