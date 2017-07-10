@@ -28,7 +28,7 @@ public class Pedido implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pedido_seq")
     private Long id;
-    private int tamanho;
+    private String tamanho;
     private String sabores;
     private String bebidas;
     private String bordas;
@@ -43,11 +43,11 @@ public class Pedido implements Serializable {
         this.id = id;
     }
 
-    public int getTamanho() {
+    public String getTamanho() {
         return tamanho;
     }
 
-    public void setTamanho(int tamanho) {
+    public void setTamanho(String tamanho) {
         this.tamanho = tamanho;
     }
 

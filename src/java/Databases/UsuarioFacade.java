@@ -6,6 +6,7 @@
 package Databases;
 
 import Models.Usuario;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -41,6 +42,13 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
     @Consumes(MediaType.APPLICATION_JSON)
     public void create(Usuario entity) {
         super.create(entity);
+    }
+    
+    @GET
+    @Override
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Usuario> findAll() {
+        return super.findAll();
     }
     
 }

@@ -1,8 +1,8 @@
-<div class="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3" style="margin-top: 10px">
+<div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2" style="margin-top: 10px">
     
-     <div class="panel-body">
-         <button type="submit" class="btn btn-danger col-lg-offset-11 " >Novo</button>
-     </div>
+    <div class="panel-body">
+        <a class="btn btn-danger col-lg-offset-11" href="#/registro">Novo</a>
+    </div>
     
     <div class="panel panel-danger">
         
@@ -12,75 +12,50 @@
         
         <div class="panel-body">
             
-            <div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1">
+            <div class="table-responsive">
                 
-            <div class="col-lg-2 col-md-2">
-                Usuário Nº #1
-            </div>
-            
-            <div class="col-lg-4 col-md-4">
-                Nome: João<br/>
-                Telefone: 48484848484
-                Endereço: Rua 13
-            </div>
-            
-            <div class="col-lg-4 col-md-4">
-                Principais Pedidos: Pizza sabor Frango e Bacon<br/>
-            </div>
-            
-            <div class="col-lg-2 col-md-2">
-                <a class="btn btn-danger">Editar</a>
-            </div>       
-
-             </div>
-            </div>
-        <div class="panel-body">
-        <div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1" >
-            <div class="col-lg-2 col-md-2">
-                Usuário Nº #2
-            </div>
-            
-            <div class="col-lg-4 col-md-4">
-                Nome: Ana Lidia<br/>
-                Telefone: 48484848484
-                Endereço: Rua 13
-            </div>
-            
-            <div class="col-lg-4 col-md-4">
-                Principais Pedidos: Pizza sabor Frango e Bacon<br/>
-            </div>
-            
-            <div class="col-lg-2 col-md-2">
-                <a class="btn btn-danger">Editar</a>
-            </div>
+                <table class="table table-bordered table-hover">
                     
-        </div>
-        </div>
-        <div class="panel-body">
-        <div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1" >
-            <div class="col-lg-2 col-md-2">
-                Usuário Nº #3
-            </div>
-            
-            <div class="col-lg-4 col-md-4">
-                Nome: Maria<br/>
-                Telefone: 48484848484
-                Endereço: Rua 13
-            </div>
-            
-            <div class="col-lg-4 col-md-4">
-                Principais Pedidos: Pizza sabor Frango e Bacon<br/>
-            </div>
-            
-            <div class="col-lg-2 col-md-2">
-                <a class="btn btn-danger">Editar</a>
-            </div>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Telefones</th>
+                            <th>Endereço</th>
+                            <th>Complemento</th>
+                            <th>Cidade</th>
+                            <th>CEP</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>    
                     
-        </div>
+                    <tbody style="font-size: 12px">
+                        
+                        <tr ng-repeat="usuario in usuarios">
+                            <td ng-bind="usuario.id">{{usuario.id}}</td>
+                            <td ng-bind="usuario.nome"></td>
+                            <td>
+                                <span ng-bind="usuario.telefone"></span><br/>
+                                <span ng-bind="usuario.celular"></span>
+                            </td>
+                            <td>
+                                <span ng-bind="usuario.logradouro"></span> - <span ng-bind="usuario.numero"></span>
+                            </td>
+                            <td ng-bind="usuario.complemento"></td>
+                            <td ng-bind="usuario.cidade"></td>
+                            <td ng-bind="usuario.cep"></td>
+                            <td ng-bind="usuario.email"></td>
+                        </tr>
+                        
+                    </tbody>
+                    
+                </table>
+                
             </div>
             
-            
         </div>
+            
+    </div>
         
 </div>
     

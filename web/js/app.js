@@ -23,16 +23,12 @@ myApp.config(function($routeProvider, $locationProvider){
           controller: 'mainController'
         })
         .when('/montagem', {
-          templateUrl: 'views/montagem2.html',
-          controller: 'montagemController'
-        })
-        .when('/montagem2', {
           templateUrl: 'views/montagem.html',
           controller: 'montagemController'
         })
         .when('/pedidos', {
           templateUrl: 'views/pedidos.html',
-          controller: 'mainController'
+          controller: 'pedidosController'
         })
         .when('/cliente', {
           templateUrl: 'views/listacliente.html',
@@ -44,7 +40,7 @@ myApp.config(function($routeProvider, $locationProvider){
         })
          .when('/usuario', {
           templateUrl: 'views/listausuario.html',
-          controller: 'mainController'
+          controller: 'usuarioController'
         })
         
         .otherwise ({ redirectTo: '/' });
@@ -124,8 +120,6 @@ myApp.controller('loginController', ['$scope', function ($scope){
             method: 'POST',
             url: "/api/usuario",
             data: $scope.models
-        }).then(function() {
-            window.location.href = "/";
         }); 
        
     };
@@ -317,9 +311,32 @@ myApp.controller('montagemController', ['$scope', '$http', function($scope, $htt
                 window.location.href = "/";
             }); 
             
-        }
+        };
         
 }]);
 
+myApp.controller('pedidosController', ['$scope', '$http', function($scope, $http){
 
+    $scope.pedidos = [];
+    
+    $http({
+        method: 'GET',
+        url: "/api/pedido"
+    }).then(function(data) {  
+        $scope.pedidos = data;
+    });
+        
+}]);
 
+myApp.controller('usuarioController', ['$scope', '$http', function($scope, $http){
+
+    $scope.usuarios = [];
+    
+    $http({
+        method: 'GET',
+        url: "/api/usuario"
+    }).then(function(data) {  
+        $scope.usuarios = data.data;
+    });
+        
+}]);

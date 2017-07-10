@@ -6,12 +6,15 @@
 package Databases;
 
 import Models.Pedido;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -39,6 +42,13 @@ public class PedidoFacade extends AbstractFacade<Pedido> {
     @Consumes(MediaType.APPLICATION_JSON)
     public void create(Pedido entity) {
         super.create(entity);
+    }
+    
+    @GET
+    @Override
+    @Produces({"application/xml", "application/json"})
+    public List<Pedido> findAll() {
+        return super.findAll();
     }
     
 }
